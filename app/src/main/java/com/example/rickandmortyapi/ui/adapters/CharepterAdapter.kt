@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.rickandmortyapi.data.models.ChereptersItem
+import com.example.rickandmortyapi.data.models.ChareptersItem
 import com.example.rickandmortyapi.databinding.ItemCherepterBinding
 
-class CheracterAdapter :
-    ListAdapter<ChereptersItem, CheracterAdapter.CheractersViewHolder>(diffUtil) {
+class CharacterAdapter:
+    ListAdapter<ChareptersItem, CharacterAdapter.CharactersViewHolder>(diffUtil) {
 
-    inner class CheractersViewHolder(private val binding: ItemCherepterBinding) :
+    inner class CharactersViewHolder(private val binding: ItemCherepterBinding) :
 
         ViewHolder(binding.root) {
-        fun onBind(item: ChereptersItem) {
+        fun onBind(item: ChareptersItem) {
             Glide.with(binding.imCherepters.context)
                 .load(item.image)
                 .into(binding.imCherepters)
@@ -25,8 +25,8 @@ class CheracterAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheractersViewHolder {
-        return CheractersViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
+        return CharactersViewHolder(
             ItemCherepterBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -35,24 +35,24 @@ class CheracterAdapter :
         )
     }
 
-    override fun onBindViewHolder(holder: CheractersViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
         getItem(position)?.let {
             holder.onBind(it)
         }
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ChereptersItem>() {
+        val diffUtil = object : DiffUtil.ItemCallback<ChareptersItem>() {
             override fun areItemsTheSame(
-                oldItem: ChereptersItem,
-                newItem: ChereptersItem
+                oldItem: ChareptersItem,
+                newItem: ChareptersItem
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areContentsTheSame(
-                oldItem: ChereptersItem,
-                newItem: ChereptersItem
+                oldItem: ChareptersItem,
+                newItem: ChareptersItem
             ): Boolean {
                 return oldItem.name == newItem.name
             }

@@ -1,6 +1,6 @@
 package com.example.rickandmortyapi.data.repositories
 
-import com.example.rickandmortyapi.data.models.ChereptersItem
+import com.example.rickandmortyapi.data.models.ChareptersItem
 import com.example.rickandmortyapi.data.models.RickAndMortyResponse
 import com.example.rickandmortyapi.data.remote.api.RickAndMortyService
 import retrofit2.Call
@@ -10,10 +10,10 @@ import retrofit2.Response
 class RickAndMortyRepository(private val rickAndMortyApiService: RickAndMortyService) {
 
     fun getCharacters(
-        onSuccess: (CharacterList: List<ChereptersItem>) -> Unit,
+        onSuccess: (characterList: List<ChareptersItem>) -> Unit,
         onFailure: (message: String) -> Unit,
     ) {
-        rickAndMortyApiService.getCherepters().enqueue(object : Callback<RickAndMortyResponse> {
+        rickAndMortyApiService.getCharepters().enqueue(object : Callback<RickAndMortyResponse> {
             override fun onResponse(
                 call: Call<RickAndMortyResponse>,
                 response: Response<RickAndMortyResponse>

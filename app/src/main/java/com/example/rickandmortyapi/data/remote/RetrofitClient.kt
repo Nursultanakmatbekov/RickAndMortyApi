@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
 
-    val okHttpClient:OkHttpClient = OkHttpClient().newBuilder()
+    private val okHttpClient:OkHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor())
         .connectTimeout(30,TimeUnit.SECONDS)
         .readTimeout(30,TimeUnit.SECONDS)
         .writeTimeout(30,TimeUnit.SECONDS)
         .build()
 
-    val retrofit:Retrofit= Retrofit.Builder()
+   private val retrofit:Retrofit= Retrofit.Builder()
         .baseUrl("https://rickandmortyapi.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)

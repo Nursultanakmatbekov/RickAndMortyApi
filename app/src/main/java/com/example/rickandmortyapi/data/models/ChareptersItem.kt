@@ -2,7 +2,7 @@ package com.example.rickandmortyapi.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class ChereptersItem(@SerializedName("image")
+data class ChareptersItem(@SerializedName("image")
                        val image: String = "",
                           @SerializedName("gender")
                        val gender: String = "",

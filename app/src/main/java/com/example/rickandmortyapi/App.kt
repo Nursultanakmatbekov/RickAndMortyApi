@@ -9,8 +9,4 @@ class App : Application() {
     companion object {
         val retrofitClient = RetrofitClient()
     }
-
-    override fun onCreate() {
-        super.onCreate()
-    }
 }
